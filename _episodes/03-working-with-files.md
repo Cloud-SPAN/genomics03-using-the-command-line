@@ -85,69 +85,26 @@ each result starts with `/`.
 > ## Exercise
 > Do each of the following tasks from your current directory using a single
 > `ls` command for each:
-> 
+>
 > 1.  List all of the files in `/usr/bin` that start with the letter 'c'.
-> 2.  List all of the files in `/usr/bin` that contain the letter 'a'. 
+> 2.  List all of the files in `/usr/bin` that contain the letter 'a'.
 > 3.  List all of the files in `/usr/bin` that end with the letter 'o'.
+> 4.  What would the output look like if a wildcard could *not* be matched? Try listing all files that start with 'missing'
 >
 > Bonus: List all of the files in `/usr/bin` that contain the letter 'a' or the
 > letter 'c'.
-> 
+>
 > Hint: The bonus question requires a Unix wildcard that we haven't talked about
 > yet. Try searching the internet for information about Unix wildcards to find
 > what you need to solve the bonus problem.
-> 
+>
 > > ## Solution
 > > 1. `ls /usr/bin/c*`
 > > 2. `ls /usr/bin/*a*`
 > > 3. `ls /usr/bin/*o`  
+> > 4. `ls: cannot access 'missing*': No such file or directory`
 > > Bonus: `ls /usr/bin/*[ac]*`
-> > 
-> {: .solution}
-{: .challenge}
-
-> ## Exercise
-> `echo` is a built-in shell command that writes its arguments, like a line of text to standard output. 
-> The `echo` command can also be used with pattern matching characters, such as wildcard characters. 
-> Here we will use the `echo` command to see how the wildcard character is interpreted by the shell.
-> 
-> ~~~
-> $ echo *.fastq
-> ~~~
-> {: .bash}
-> 
-> ~~~
-> SRR097977.fastq SRR098026.fastq
-> ~~~
-> {: .output}
-> 
-> The `*` is expanded to include any file that ends with `.fastq`. We can see that the output of
-> `echo *.fastq` is the same as that of `ls *.fastq`.
-> 
-> What would the output look like if the wildcard could *not* be matched? Compare the outputs of
-> `echo *.missing` and `ls *.missing`.
-> 
-> > ## Solution
-> > ~~~
-> > $ echo *.missing
-> > ~~~
-> > {: .bash}
-> > 
-> > ~~~
-> > *.missing
-> > ~~~
-> > {: .output}
-> > 
-> > ~~~
-> > $ ls *.missing
-> > ~~~
-> > {: .bash}
-> > 
-> > ~~~
-> > ls: cannot access '*.missing': No such file or directory
-> > ~~~
-> > {: .output}
-> > 
+> >
 > {: .solution}
 {: .challenge}
 
