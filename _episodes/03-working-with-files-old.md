@@ -24,8 +24,8 @@ keypoints:
 ### Our data set: FASTQ files
 
 Now that we know how to navigate around our directory structure, let's
-start working with our sequencing files. We did a sequencing experiment and 
-have two results files, which are stored in our `untrimmed_fastq` directory. 
+start working with our sequencing files. We did a sequencing experiment and
+have two results files, which are stored in our `untrimmed_fastq` directory.
 
 ### Wildcards
 
@@ -49,10 +49,10 @@ SRR097977.fastq  SRR098026.fastq
 ~~~
 {: .output}
 
-The `*` character is a special type of character called a wildcard, which can be used to represent any number of any type of character. 
-Thus, `*.fastq` matches every file that ends with `.fastq`. 
+The `*` character is a special type of character called a wildcard, which can be used to represent any number of any type of character.
+Thus, `*.fastq` matches every file that ends with `.fastq`.
 
-This command: 
+This command:
 
 ~~~
 $ ls *977.fastq
@@ -115,9 +115,9 @@ If you want to repeat a command that you've run recently, you can access previou
 commands using the up arrow on your keyboard to go back to the most recent
 command. Likewise, the down arrow takes you forward in the command history.
 
-A few more useful shortcuts: 
+A few more useful shortcuts:
 
-- <kbd>Ctrl</kbd>+<kbd>C</kbd> will cancel the command you are writing, and give you a 
+- <kbd>Ctrl</kbd>+<kbd>C</kbd> will cancel the command you are writing, and give you a
 fresh prompt.
 - <kbd>Ctrl</kbd>+<kbd>R</kbd> will do a reverse-search through your command history.  This
 is very useful.
@@ -170,9 +170,9 @@ We now know how to switch directories, run programs, and look at the
 contents of directories, but how do we look at the contents of files?
 
 One way to examine a file is to print out all of the
-contents using the program `cat`. 
+contents using the program `cat`.
 
-Enter the following command from within the `untrimmed_fastq` directory: 
+Enter the following command from within the `untrimmed_fastq` directory:
 
 ~~~
 $ cat SRR098026.fastq
@@ -183,12 +183,12 @@ This will print out all of the contents of the `SRR098026.fastq` to the screen.
 
 
 > ## Exercise
-> 
-> 1. Print out the contents of the `~/shell_data/untrimmed_fastq/SRR097977.fastq` file. What is the last line of the file? 
+>
+> 1. Print out the contents of the `~/shell_data/untrimmed_fastq/SRR097977.fastq` file. What is the last line of the file?
 > 2.  From your home directory, and without changing directories,
 > use one short command to print the contents of all of the files in
 > the `~/shell_data/untrimmed_fastq` directory.
-> 
+>
 > > ## Solution
 > > 1. The last line of the file is `C:CCC::CCCCCCCC<8?6A:C28C<608'&&&,'$`.
 > > 2. `cat ~/shell_data/untrimmed_fastq/*`
@@ -220,7 +220,7 @@ Some navigation commands in `less`:
 `less` also gives you a way of searching through files. Use the
 "/" key to begin a search. Enter the word you would like
 to search for and press `enter`. The screen will jump to the next location where
-that word is found. 
+that word is found.
 
 **Shortcut:** If you hit "/" then "enter", `less` will  repeat
 the previous search. `less` searches from the current location and
@@ -230,16 +230,16 @@ for the sequence "CAA", `less` will not find it. You either need to go to the
 beginning of the file (by typing `g`) and search again using `/` or you
 can use `?` to search backwards in the same way you used `/` previously.
 
-For instance, let's search forward for the sequence `TTTTT` in our file. 
+For instance, let's search forward for the sequence `TTTTT` in our file.
 You can see that we go right to that sequence, what it looks like,
-and where it is in the file. If you continue to type `/` and hit return, you will move 
-forward to the next instance of this sequence motif. If you instead type `?` and hit 
+and where it is in the file. If you continue to type `/` and hit return, you will move
+forward to the next instance of this sequence motif. If you instead type `?` and hit
 return, you will search backwards and move up the file to previous examples of this motif.
 
 > ## Exercise
 >
 > What are the next three nucleotides (characters) after the first instance of the sequence quoted above?
-> 
+>
 > > ## Solution
 > > `CAC`
 > {: .solution}
@@ -295,7 +295,7 @@ A!@B!BBB@ABAB#########!!!!!!!######
 {: .output}
 
 The `-n` option to either of these commands can be used to print the
-first or last `n` lines of a file. 
+first or last `n` lines of a file.
 
 ~~~
 $ head -n 1 SRR098026.fastq
@@ -349,21 +349,21 @@ NNNNNNNNNNNNNNNNCNNNNNNNNNNNNNNNNNN
 
 All but one of the nucleotides in this read are unknown (`N`). This is a pretty bad read!
 
-Line 4 shows the quality for each nucleotide in the read. Quality is interpreted as the 
-probability of an incorrect base call (e.g. 1 in 10) or, equivalently, the base call 
+Line 4 shows the quality for each nucleotide in the read. Quality is interpreted as the
+probability of an incorrect base call (e.g. 1 in 10) or, equivalently, the base call
 accuracy (e.g. 90%). To make it possible to line up each individual nucleotide with its quality
-score, the numerical score is converted into a code where each individual character 
+score, the numerical score is converted into a code where each individual character
 represents the numerical quality score for an individual nucleotide. For example, in the line
-above, the quality score line is: 
+above, the quality score line is:
 
 ~~~
 !!!!!!!!!!!!!!!!#!!!!!!!!!!!!!!!!!!
 ~~~
 {: .output}
 
-The `#` character and each of the `!` characters represent the encoded quality for an 
-individual nucleotide. The numerical value assigned to each of these characters depends on the 
-sequencing platform that generated the reads. The sequencing machine used to generate our data 
+The `#` character and each of the `!` characters represent the encoded quality for an
+individual nucleotide. The numerical value assigned to each of these characters depends on the
+sequencing platform that generated the reads. The sequencing machine used to generate our data
 uses the standard Sanger quality PHRED score encoding, Illumina version 1.8 onwards.
 Each character is assigned a quality score between 0 and 42 as shown in the chart below.
 
@@ -376,11 +376,11 @@ Quality score:    0........10........20........30........40..
 
 Each quality score represents the probability that the corresponding nucleotide call is
 incorrect. This quality score is logarithmically based, so a quality score of 10 reflects a
-base call accuracy of 90%, but a quality score of 20 reflects a base call accuracy of 99%. 
-These probability values are the results from the base calling algorithm and dependent on how 
-much signal was captured for the base incorporation. 
+base call accuracy of 90%, but a quality score of 20 reflects a base call accuracy of 99%.
+These probability values are the results from the base calling algorithm and dependent on how
+much signal was captured for the base incorporation.
 
-Looking back at our read: 
+Looking back at our read:
 
 ~~~
 @SRR098026.1 HWUSI-EAS1599_1:2:1:0:968 length=35
@@ -392,7 +392,7 @@ NNNNNNNNNNNNNNNNCNNNNNNNNNNNNNNNNNN
 
 we can now see that the quality of each of the `N`s is 0 and the quality of the only
 nucleotide call (`C`) is also very poor (`#` = a quality score of 2). This is indeed a very
-bad read. 
+bad read.
 
 
 ## Creating, moving, copying, and removing
@@ -400,16 +400,16 @@ bad read.
 Now we can move around in the file structure, look at files, and search files. But what if we want to copy files or move
 them around or get rid of them? Most of the time, you can do these sorts of file manipulations without the command line,
 but there will be some cases (like when you're working with a remote computer like we are for this lesson) where it will be
-impossible. You'll also find that you may be working with hundreds of files and want to do similar manipulations to all 
+impossible. You'll also find that you may be working with hundreds of files and want to do similar manipulations to all
 of those files. In cases like this, it's much faster to do these operations at the command line.
 
 ### Copying Files
 
-When working with computational data, it's important to keep a safe copy of that data that can't be accidentally overwritten or deleted. 
+When working with computational data, it's important to keep a safe copy of that data that can't be accidentally overwritten or deleted.
 For this lesson, our raw data is our FASTQ files.  We don't want to accidentally change the original files, so we'll make a copy of them
 and change the file permissions so that we can read from, but not write to, the files.
 
-First, let's make a copy of one of our FASTQ files using the `cp` command. 
+First, let's make a copy of one of our FASTQ files using the `cp` command.
 
 Navigate to the `shell_data/untrimmed_fastq` directory and enter:
 
@@ -437,17 +437,17 @@ $ mkdir backup
 ~~~
 {: .bash}
 
-### Moving / Renaming 
+### Moving / Renaming
 
 We can now move our backup file to this directory. We can
-move files around using the command `mv`: 
+move files around using the command `mv`:
 
 ~~~
 $ mv SRR098026-copy.fastq backup
 $ ls backup
 ~~~
 {: .bash}
- 
+
 ~~~
 SRR098026-copy.fastq
 ~~~
