@@ -52,7 +52,7 @@ $ nano README.txt
 ~~~
 {: .bash}
 
-You should see something like this: 
+You should see something like this:
 
 ![nano201711.png](../img/nano201711.png)
 
@@ -62,17 +62,17 @@ The text at the bottom of the screen shows the keyboard shortcuts for performing
 >
 > When we say, "`nano` is a text editor," we really do mean "text": it can
 > only work with plain character data, not tables, images, or any other
-> human-friendly media. We use it in examples because it is one of the 
-> least complex text editors. However, because of this trait, it may 
+> human-friendly media. We use it in examples because it is one of the
+> least complex text editors. However, because of this trait, it may
 > not be powerful enough or flexible enough for the work you need to do
 > after this workshop. On Unix systems (such as Linux and Mac OS X),
 > many programmers use [Emacs](http://www.gnu.org/software/emacs/) or
-> [Vim](http://www.vim.org/) (both of which require more time to learn), 
+> [Vim](http://www.vim.org/) (both of which require more time to learn),
 > or a graphical editor such as
 > [Gedit](http://projects.gnome.org/gedit/). On Windows, you may wish to
 > use [Notepad++](http://notepad-plus-plus.org/).  Windows also has a built-in
 > editor called `notepad` that can be run from the command line in the same
-> way as `nano` for the purposes of this lesson.  
+> way as `nano` for the purposes of this lesson.
 >
 > No matter what editor you use, you will need to know where it searches
 > for and saves files. If you start it from the shell, it will (probably)
@@ -114,11 +114,11 @@ Now you've written a file. You can take a look at it with `less` or `cat`, or op
 
 > ## Exercise
 >
-> Open `README.txt` and add the date to the top of the file and save the file. 
+> Open `README.txt` and add the date to the top of the file and save the file.
 >
 > > ## Solution
-> > 
-> > Use `nano README.txt` to open the file.  
+> >
+> > Use `nano README.txt` to open the file.
 > > Add today's date and then use <kbd>Ctrl</kbd>-<kbd>X</kbd> followed by `y` and <kbd>Enter</kbd> to save.
 > >
 > {: .solution}
@@ -147,9 +147,9 @@ grep -B1 -A2 -h NNNNNNNNNN *.fastq | grep -v '^--' > scripted_bad_reads.txt
 
 > ## Custom `grep` control
 >
-> We introduced the `-v` option in [the previous episode](http://www.datacarpentry.org/shell-genomics/04-redirection/), now we 
+> We introduced the `-v` option in [the previous episode](http://www.datacarpentry.org/shell-genomics/04-redirection/), now we
 > are using `-h` to "Suppress the prefixing of file names on output" according to the documentation shown by `man grep`.
-> 
+>
 {: .callout}
 
 Type your `grep` command into the file and save it as before. Be careful that you did not add the `$` at the beginning of the line.
@@ -166,12 +166,12 @@ It will look like nothing happened, but now if you look at `scripted_bad_reads.t
 
 > ## Exercise
 >
-> We want the script to tell us when it's done.  
-> 1. Open `bad-reads-script.sh` and add the line `echo "Script finished!"` after the `grep` command and save the file.  
+> We want the script to tell us when it's done.
+> 1. Open `bad-reads-script.sh` and add the line `echo "Script finished!"` after the `grep` command and save the file.
 > 2. Run the updated script.
 >
 > > ## Solution
-> > 
+> >
 > >    ```
 > >   $ bash bad-reads-script.sh
 > >   Script finished!
@@ -180,9 +180,55 @@ It will look like nothing happened, but now if you look at `scripted_bad_reads.t
 > {: .solution}
 {: .challenge}
 
+
+
+### File Permissions
+
+We've now made a backup copy of our file in a previous episode, but just because we have two copies, it doesn't make us safe. We can still accidentally delete or
+overwrite both copies. To make sure we can't accidentally mess up this backup file, we're going to change the permissions on the file so
+that we're only allowed to read (i.e. view) the file, not write to it (i.e. make new changes).
+
+View the current permissions on a file using the `-l` (long) flag for the `ls` command:
+
+~~~
+$ ls -l
+~~~
+{: .bash}
+
+~~~
+-rw-r--r-- 1 dcuser dcuser 43332 Nov 15 23:02 SRR098026-backup.fastq
+~~~
+{: .output}
+
+The first part of the output for the `-l` flag gives you information about the file's current permissions. There are ten slots in the
+permissions list. The first character in this list is related to file type, not permissions, so we'll ignore it for now. The next three
+characters relate to the permissions that the file owner has, the next three relate to the permissions for group members, and the final
+three characters specify what other users outside of your group can do with the file. We're going to concentrate on the three positions
+that deal with your permissions (as the file owner).
+
+![Permissions breakdown](../fig/rwx_figure.svg)
+
+Here the three positions that relate to the file owner are `rw-`. The `r` means that you have permission to read the file, the `w`
+indicates that you have permission to write to (i.e. make changes to) the file, and the third position is a `-`, indicating that you
+don't have permission to carry out the ability encoded by that space (this is the space where `x` or executable ability is stored, we'll
+talk more about this in [a later lesson](http://www.datacarpentry.org/shell-genomics/05-writing-scripts/)).
+
+Our goal for now is to change permissions on this file so that you no longer have `w` or write permissions. We can do this using the `chmod` (change mode) command and subtracting (`-`) the write permission `-w`.
+
+~~~
+$ chmod -w SRR098026-backup.fastq
+$ ls -l
+~~~
+{: .bash}
+
+~~~
+-r--r--r-- 1 dcuser dcuser 43332 Nov 15 23:02 SRR098026-backup.fastq
+~~~
+{: .output}
+
 ## Making the script into a program
 
-We had to type `bash` because we needed to tell the computer what program to use to run this script. Instead, we can turn this script into its own program. We need to tell it that it's a program by making it executable. We can do this by changing the file permissions. We talked about permissions in [an earlier episode](http://www.datacarpentry.org/shell-genomics/03-working-with-files/).
+We had to type `bash` because we needed to tell the computer what program to use to run this script. Instead, we can turn this script into its own program. We need to tell it that it's a program by making it executable. We can do this by changing the file permissions. We are going to use the SRR098026-backup.fastq we generated in [an earlier episode](http://www.datacarpentry.org/shell-genomics/03-working-with-files/).
 
 First, let's look at the current permissions.
 
@@ -229,7 +275,7 @@ You will learn more about writing scripts in [a later lesson](https://datacarpen
 ## Moving and Downloading Data
 
 So far, we've worked with data that is pre-loaded on the instance in the cloud. Usually, however,
-most analyses begin with moving data onto the instance. Below we'll show you some commands to 
+most analyses begin with moving data onto the instance. Below we'll show you some commands to
 download data onto your instance, or to move data between your computer and the cloud.
 
 ### Getting data from the cloud
@@ -253,7 +299,7 @@ tab-delimited file that just tells us what data is available on the Ensembl bact
 Before we can start our download, we need to know whether we're using ``curl`` or ``wget``.
 
 To see which program you have, type:
- 
+
 ~~~
 $ which curl
 $ which wget
@@ -394,41 +440,81 @@ Remember that in both instances, the command is run from your local machine, we'
 
 <div id="div_win" style="display:block" markdown="1">
 
-### Uploading Data to your Virtual Machine with PSCP
+### Uploading Data to your Virtual Machine with SCP within Git Bash
 
-If you're using a PC, we recommend you use the *PSCP* program. This program is from the same suite of
-tools as the PuTTY program we have been using to connect.
+If you are using a windows machine, you should be able to use scp as long as you have git bash/ git for windows installed
 
-1. If you haven't done so, download pscp from [http://the.earth.li/~sgtatham/putty/latest/x86/pscp.exe](http://the.earth.li/~sgtatham/putty/latest/x86/pscp.exe)
-2. Make sure the *PSCP* program is somewhere you know on your computer. In this case,
-your Downloads folder is appropriate.
-3. Open the windows [PowerShell](https://en.wikipedia.org/wiki/Windows_PowerShell);
-go to your start menu/search enter the term **'cmd'**; you will be able to start the shell
-(the shell should start from C:\Users\your-pc-username>).
-4. Change to the Downloads directory:
+Once installed, you can open a terminal by running the program Git Bash from the Windows start menu
+
+1. If you haven't done so, download git for windows, which contains allows windows users to run a linux type shell from [https://gitforwindows.org/](https://gitforwindows.org/), this installs a version of scp and ssh as part of the installation
+2. Make sure that you have *scp* installed:
 
 ~~~
-> cd Downloads
+$ man scp
 ~~~
 {: .bash}
 
-5. Locate a file on your computer that you wish to upload (be sure you know the path). Then upload it to your remote machine **(you will need to know your AMI instance address (which starts with ec2), and login credentials)**. You will be prompted to enter a password, and then your upload will begin. **(make sure you substitute 'your-pc-username' for your actual pc username and 'ec2-54-88-126-85.compute-1.amazonaws.com' with your AMI instance address)**
+3. Open the git bash terminal and use the `scp` command to upload a file (e.g. local_file.txt) to the dcuser home directory. Once git bash is installed, the remaining commands follow those of the unix platform:
 
 ~~~
-C:\User\your-pc-username\Downloads> pscp.exe local_file.txt dcuser@ec2-54-88-126-85.compute-1.amazonaws.com:/home/dcuser/
+$  scp local_file.txt dcuser@ip.address:/home/dcuser/
+~~~
+{: .bash}
+
+### Uploading Data to your Virtual Machine with scp
+
+`scp` stands for 'secure copy protocol', and is a widely used UNIX tool for moving files
+between computers. The simplest way to use `scp` is to run it in your local terminal,
+and use it to copy a single file:
+
+~~~
+scp <file I want to move> <where I want to move it>
 ~~~
 {: .bash}
 
-### Downloading Data from your Virtual Machine with PSCP
-
-1. Follow the instructions in the Upload section to download (if needed) and access the *PSCP* program (steps 1-3)
-2. Download the text file to your current working directory (represented by a .) using the following command **(make sure you substitute 'your-pc-username' for your actual pc username and 'ec2-54-88-126-85.compute-1.amazonaws.com' with your AMI instance address)**
+Note that you are always running `scp` locally, but that *doesn't* mean that
+you can only move files from your local computer. In order to move a file from your local computer to an AWS instance, the command would look like this:
 
 ~~~
-C:\User\your-pc-username\Downloads> pscp.exe dcuser@ec2-54-88-126-85.compute-1.amazonaws.com:/home/dcuser/shell_data/untrimmed_fastq/scripted_bad_reads.txt .
-
-C:\User\your-pc-username\Downloads
+$ scp <local file> <AWS instance>
 ~~~
 {: .bash}
+
+To move it back to your local computer, you re-order the `to` and `from` fields:
+
+~~~
+$ scp <AWS instance> <local file>
+~~~
+{: .bash}
+
+#### Uploading Data to your Virtual Machine with scp
+
+Open the terminal and use the `scp` command to upload a file (e.g. local_file.txt) to the dcuser home directory:
+
+~~~
+$  scp local_file.txt dcuser@ip.address:/home/dcuser/
+~~~
+{: .bash}
+
+#### Downloading Data from your Virtual Machine with git bash installed scp
+
+Let's download a text file from our remote machine. You should have a file that contains bad reads called ~/shell_data/scripted_bad_reads.txt.
+
+**Tip:** If you are looking for another (or any really) text file in your home directory to use instead, try:
+
+~~~
+$ find ~ -name *.txt
+~~~
+{: .bash}
+
+
+Download the bad reads file in ~/shell_data/scripted_bad_reads.txt to your home ~/Download directory using the following command **(make sure you substitute dcuser@ip.address with your remote login credentials)**:
+
+~~~
+$ scp dcuser@ip.address:/home/dcuser/shell_data/untrimmed_fastq/scripted_bad_reads.txt ~/Downloads
+~~~
+{: .bash}
+
+Remember that in both instances, the command is run from your local machine, we've just flipped the order of the to and from parts of the command.
 
 </div>
