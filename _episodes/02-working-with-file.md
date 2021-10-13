@@ -5,17 +5,14 @@ exercises: 15
 questions:
 - "How can I view and search file contents?"
 - "How can I create, copy and delete files and directories?"
-- "How can I control who has permission to modify a file?"
 - "How can I repeat recently used commands?"
 objectives:
 - View, search within, copy, move, and rename files. Create new directories.
 - Use wildcards (`*`) to perform operations on multiple files.
-- Make a file read only.
 - Use the `history` command to view and repeat recently used commands.
 keypoints:
 - "You can view file contents using `less`, `cat`, `head` or `tail`."
 - "The commands `cp`, `mv`, and `mkdir` are useful for manipulating existing files and creating new directories."
-- "You can view file permissions using `ls -l` and change permissions using `chmod`."
 - "The `history` command and the up arrow on your keyboard can be used to repeat recently used commands."
 ---
 
@@ -406,8 +403,7 @@ of those files. In cases like this, it's much faster to do these operations at t
 ### Copying Files
 
 When working with computational data, it's important to keep a safe copy of that data that can't be accidentally overwritten or deleted.
-For this lesson, our raw data is our FASTQ files.  We don't want to accidentally change the original files, so we'll make a copy of them
-and change the file permissions so that we can read from, but not write to, the files.
+For this lesson, our raw data is our FASTQ files.  
 
 First, let's make a copy of one of our FASTQ files using the `cp` command.
 
