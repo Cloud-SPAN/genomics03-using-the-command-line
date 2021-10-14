@@ -15,19 +15,12 @@ There are quite a few reasons to start learning about the shell:
 
 > ## Getting Started
 >
-> This lesson assumes no prior experience with the tools covered in the workshop. 
+> This lesson assumes no prior experience with the tools covered in the course. 
 > However, learners are expected to have some familiarity with biological concepts,
 > including the 
 > concept of genomic variation within a population. Participants should bring their laptops and plan to participate actively. 
 >
-> This lesson is part of a workshop that uses data hosted on an Amazon Machine Instance (AMI). Workshop participants will be given 
+> This lesson is part of a course that uses data hosted on an Amazon Machine Instance (AMI). Course participants will be given 
 > information on how
-> to log-in to the AMI during the workshop. Learners using these materials for self-directed study will need to set up their own
-> AMI. Information on setting up an AMI and accessing the required data is provided on the [Genomics Workshop setup page](https://www.datacarpentry.org/genomics-workshop/setup.html).
-{: .prereq}
-
-> ## For Instructors
->
-> If you are teaching this lesson in a workshop, please see the 
-> [Instructor notes](./guide/index.html).
+> to log-in to the AMI during the course. Information on preparing for the course is provided on the [Cloud-SPAN Genomics Course setup page](https://cloud-span.github.io/genomics01-intro/setup.html).
 {: .prereq}
