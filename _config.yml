@@ -6,7 +6,7 @@
 carpentry: "dc"
 
 # Overall title for pages.
-title: "Cloud-SPAN Introduction to the Command Line for Genomics"
+title: "Using the command line"
 
 # Contact.  This *must* include the protocol: if it's an email
 # address, it must look like "mailto:lessons@software-carpentry.org",
@@ -23,6 +23,9 @@ kind: "lesson"
 # Magic to make URLs resolve both locally and on GitHub.
 # See https://help.github.com/articles/repository-metadata-on-github-pages/.
 repository: <USERNAME>/<PROJECT>
+
+# Email address, no mailto:
+email: "cloud-span-project@york.ac.uk"
 
 # Sites.
 amy_site: "https://amy.software-carpentry.org/workshops"
