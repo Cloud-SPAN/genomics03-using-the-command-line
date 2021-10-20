@@ -1,23 +1,8 @@
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5583050.svg)](https://doi.org/10.5281/zenodo.5583050)
 
-# Shell Genomics lessons
+# Genomics Session 2. Using the command line
 
-An introduction to the Unix shell for people working with genomics data. This lesson is part of the [Data Carpentry Genomics Workshop](http://www.datacarpentry.org/genomics-workshop/). Please see http://www.datacarpentry.org/shell-genomics/ for a rendered version of this material.
+Second session of the Cloud-SPAN Genomics course.
 
-## Contribution
-
-Make a suggestion or correct an error by [raising an Issue](https://github.com/datacarpentry/shell-genomics/issues).
-
-## Code of Conduct
-
-All participants should agree to abide by the [Data Carpentry Code of Conduct](http://www.datacarpentry.org/code-of-conduct/).
-
-## Authors
-
-Shell Genomics is authored and maintained by the [community](https://github.com/datacarpentry/shell-genomics/network/members). 
-
-## Citation
-
-Please cite as:
-
-Erin Alison Becker, Anita Schürch, Tracy Teal, Sheldon John McKay, Jessica Elizabeth Mizzi, François Michonneau, et al. (2019, June). datacarpentry/shell-genomics: Data Carpentry: Introduction to the shell for genomics data, June 2019 (Version v2019.06.1). Zenodo. http://doi.org/10.5281/zenodo.3260560
+Cloud-SPAN is a collaboration between the [Department of Biology, University of York](https://www.york.ac.uk/biology/) and [The Software Sustainability Institute](https://www.software.ac.uk/) funded by the UKRI innovation scholars award (Project Reference: [MR/V038680/1](https://www.google.com/url?q=https%3A%2F%2Fgtr.ukri.org%2Fprojects%3Fref%3DMR%252FV038680%252F1&sa=D&sntz=1&usg=AFQjCNF0nsozFp-1kvcp0Dgjks6kY8CiCQ)) which trains researchers, and the research software engineers that support them, to run specialised analyses on cloud-based high-performance computing infrastructure
+The course is based on the Data Carpentry’s [Genomics Workshop](https://datacarpentry.org/genomics-workshop), streamlined and extended to serve as the foundation course for the Cloud-SPAN advanced modules. The edited material is not endorsed by [Data Carpentry](https://datacarpentry.org/) or the [Carpentries](https://carpentries.org/) in general.
