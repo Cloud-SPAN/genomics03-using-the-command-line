@@ -346,7 +346,8 @@ NNNNNNNNNNNNNNNNCNNNNNNNNNNNNNNNNNN
 
 All but one of the nucleotides in this read are unknown (`N`). This is a pretty bad read!
 
-Line 4 shows the quality for each nucleotide in the read. Quality is interpreted as the
+Line 4 shows the quality for each nucleotide in the read. We will learn more about how to interpret the quality score in tomorrow's lesson. For now, just know that the FASTQ format has four lines per read.
+<!-- Quality is interpreted as the
 probability of an incorrect base call (e.g. 1 in 10) or, equivalently, the base call
 accuracy (e.g. 90%). To make it possible to line up each individual nucleotide with its quality
 score, the numerical score is converted into a code where each individual character
@@ -389,7 +390,7 @@ NNNNNNNNNNNNNNNNCNNNNNNNNNNNNNNNNNN
 
 we can now see that the quality of each of the `N`s is 0 and the quality of the only
 nucleotide call (`C`) is also very poor (`#` = a quality score of 2). This is indeed a very
-bad read.
+bad read. -->
 
 
 ## Creating, moving, copying, and removing
