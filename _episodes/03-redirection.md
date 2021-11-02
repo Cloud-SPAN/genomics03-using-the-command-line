@@ -188,7 +188,7 @@ We can check the number of lines in our new file using a command called `wc`.
 in a file. The FASTQ file may change over time, so given the potential for updates,
 make sure your file matches your instructor's output.
 
-As of Sept. 2020, wc gives the following output:  
+As of Nov. 2021, wc gives the following output:  
 
 
 
@@ -272,7 +272,7 @@ $ wc -l bad_reads.txt
 {: .bash}
 
 ~~~
-802 bad_reads.txt
+537 bad_reads.txt
 ~~~
 {: .output}
 
@@ -301,7 +301,7 @@ $ wc -l bad_reads.txt
 {: .bash}
 
 ~~~
-802 bad_reads.txt
+537 bad_reads.txt
 ~~~
 {: .output}
 
@@ -312,7 +312,7 @@ $ wc -l bad_reads.txt
 {: .bash}
 
 ~~~
-802 bad_reads.txt
+537 bad_reads.txt
 ~~~
 {: .output}
 
@@ -327,7 +327,7 @@ $ wc -l bad_reads.txt
 {: .bash}
 
 ~~~
-802 bad_reads.txt
+537 bad_reads.txt
 ~~~
 {: .output}
 
@@ -390,7 +390,7 @@ $ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq | wc -l
 {: .bash}
 
 Because we asked `grep` for all four lines of each FASTQ record, we need to divide the output by
-four to get the number of sequences that match our search pattern. Since 802 / 4 = 200.5 and we
+four to get the number of sequences that match our search pattern. Since 537 / 4 = 134.25 and we
 are expecting an integer number of records, there is something added or missing in `bad_reads.txt`.
 If we explore `bad_reads.txt` using `less`, we might be able to notice what is causing the uneven
 number of lines. Luckily, this issue happens by the end of the file so we can also spot it with `tail`.
@@ -407,7 +407,6 @@ ANNNNNNNNNTTCAGCGACTNNNNNNNNNNGTNGN
 +SRR098026.133 HWUSI-EAS1599_1:2:1:0:1978 length=35
 #!!!!!!!!!##########!!!!!!!!!!##!#!
 --
---
 @SRR098026.177 HWUSI-EAS1599_1:2:1:1:2025 length=35
 CNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
 +SRR098026.177 HWUSI-EAS1599_1:2:1:1:2025 length=35
@@ -415,8 +414,7 @@ CNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
 ~~~
 {: .output}
 
-The fifth and six lines in the output display "--" which is the default action for `grep` to separate groups of
-lines matching the pattern, and indicate groups of lines which did not match the pattern so are not displayed.
+The fifth line in the output displays "--", which is the default output for `grep` to separate groups of lines matching the pattern.
 To fix this issue, we can redirect the output of grep to a second instance of `grep` as follows.
 
 ~~~
@@ -425,8 +423,7 @@ tail bad_reads.fastq
 ~~~
 {: .bash}
 
-~~~
-+SRR098026.132 HWUSI-EAS1599_1:2:1:0:320 length=35
+  +SRR098026.132 HWUSI-EAS1599_1:2:1:0:320 length=35
 #!!!!!!!!!##########!!!!!!!!!!##!#!
 @SRR098026.133 HWUSI-EAS1599_1:2:1:0:1978 length=35
 ANNNNNNNNNTTCAGCGACTNNNNNNNNNNGTNGN
