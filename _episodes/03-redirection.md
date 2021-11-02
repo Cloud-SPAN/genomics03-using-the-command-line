@@ -418,8 +418,8 @@ The fifth line in the output displays "--", which is the default output for `gre
 To fix this issue, we can redirect the output of grep to a second instance of `grep` as follows.
 
 ~~~
-$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq | grep -v '^--' > bad_reads.fastq
-tail bad_reads.fastq
+$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq | grep -v '^--' > bad_reads.txt
+tail bad_reads.txt
 ~~~
 {: .bash}
 
