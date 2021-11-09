@@ -17,7 +17,6 @@ keypoints:
 - "`command >> file` redirects a command's output to a file without overwriting the existing contents of the file."
 - "`command_1 | command_2` redirects the output of the first command as input to the second command."
 - "`for` loops are used for iteration."
-- "`basename` gets rid of repetitive parts of names."
 ---
 
 ## Searching files
@@ -331,29 +330,6 @@ $ wc -l bad_reads.txt
 ~~~
 {: .output}
 
-> ## File extensions - part 2
->
-> This is where we would have trouble if we were naming our output file with a `.fastq` extension.
-> If we already had a file called `bad_reads.fastq` (from our previous `grep` practice)
-> and then ran the command above using a `.fastq` extension instead of a `.txt` extension, `grep`
-> would give us a warning.
->
-> ~~~
-> grep -B1 -A2 NNNNNNNNNN *.fastq > bad_reads.fastq
-> ~~~
-> {: .bash}
->
-> ~~~
-> grep: input file ‘bad_reads.fastq’ is also the output
-> ~~~
-> {: .output}
->
-> `grep` is letting you know that the output file `bad_reads.fastq` is also included in your
-> `grep` call because it matches the `*.fastq` pattern. Be careful with this as it can lead to
-> some unintended results.
->
-{: .callout}
-
 Since we might have multiple different criteria we want to search for,
 creating a new output file each time has the potential to clutter up our workspace. We also
 thus far haven't been interested in the actual contents of those files, only in the number of
@@ -423,6 +399,7 @@ tail bad_reads.txt
 ~~~
 {: .bash}
 
+~~~
   +SRR098026.132 HWUSI-EAS1599_1:2:1:0:320 length=35
 #!!!!!!!!!##########!!!!!!!!!!##!#!
 @SRR098026.133 HWUSI-EAS1599_1:2:1:0:1978 length=35

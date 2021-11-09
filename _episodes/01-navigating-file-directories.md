@@ -341,7 +341,7 @@ $ ls ~
 {: .bash}
 
 ~~~
-R  r_data  shell_data
+bin  shell_data  software
 ~~~
 {: .output}
 
