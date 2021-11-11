@@ -233,7 +233,6 @@ $ wc -l bad_reads.txt
 >> {: .output}
 >>
 > {: .solution}
-
 {: .challenge}
 
 
