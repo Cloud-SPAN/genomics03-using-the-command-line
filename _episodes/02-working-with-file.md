@@ -391,8 +391,6 @@ NNNNNNNNNNNNNNNNCNNNNNNNNNNNNNNNNNN
 we can now see that the quality of each of the `N`s is 0 and the quality of the only
 nucleotide call (`C`) is also very poor (`#` = a quality score of 2). This is indeed a very
 bad read. -->
-
-
 ## Creating, moving, copying, and removing
 
 Now we can move around in the file structure, look at files, and search files. But what if we want to copy files or move
@@ -506,8 +504,8 @@ This will delete not only the directory, but all files within the directory.
 > > It's always a good idea to check your work with `ls -l backup`. You should see something like:
 > >
 > > ~~~
-> > -rw-r--r-- 1 dcuser dcuser 47552 Nov 15 23:06 SRR097977-backup.fastq
-> > -rw-r--r-- 1 dcuser dcuser 43332 Nov 15 23:06 SRR098026-backup.fastq
+> > -rw-r--r-- 1 csuser csuser 47552 Nov 15 23:06 SRR097977-backup.fastq
+> > -rw-r--r-- 1 csuser csuser 43332 Nov 15 23:06 SRR098026-backup.fastq
 > > ~~~
 > > {: .output}
 > {: .solution}

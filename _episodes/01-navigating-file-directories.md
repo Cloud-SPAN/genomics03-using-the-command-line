@@ -68,7 +68,7 @@ $ pwd
 {: .bash}
 
 ~~~
-/home/dcuser/shell_data
+/home/csuser/shell_data
 ~~~
 {: .output}
 
@@ -232,22 +232,22 @@ $ pwd
 You will see:
 
 ~~~
-/home/dcuser
+/home/csuser
 ~~~
 {: .output}
 
 This is the full name of your home directory. This tells you that you
-are in a directory called `dcuser`, which sits inside a directory called
+are in a directory called `csuser`, which sits inside a directory called
 `home` which sits inside the very top directory in the hierarchy. The
 very top of the hierarchy is a directory called `/` which is usually
-referred to as the *root directory*. So, to summarize: `dcuser` is a
+referred to as the *root directory*. So, to summarize: `csuser` is a
 directory in `home` which is a directory in `/`. More on `root` and
 `home` in the next section.
 
 Now enter the following command:
 
 ~~~
-$ cd /home/dcuser/shell_data/.hidden
+$ cd /home/csuser/shell_data/.hidden
 ~~~
 {: .bash}
 
@@ -324,7 +324,7 @@ home directory. Dealing with the `home` directory is very common.
 The tilde character, `~`, is a shortcut for your home directory.
 In our case, the `root` directory is __two__ levels above our
 `home` directory, so `cd` or `cd ~` will take you to
-`/home/dcuser` and `cd /` will take you to `/`. Navigate to the
+`/home/csuser` and `cd /` will take you to `/`. Navigate to the
 `shell_data` directory:
 
 ~~~
@@ -341,7 +341,7 @@ $ ls ~
 {: .bash}
 
 ~~~
-R  r_data  shell_data
+bin  shell_data  software
 ~~~
 {: .output}
 
