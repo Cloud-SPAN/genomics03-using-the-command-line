@@ -216,11 +216,14 @@ $ wc -l bad_reads.txt
 
 > ## Exercise
 >
-> How many sequences are there in `SRR098026.fastq`? Remember that every sequence is formed by four lines.
+> Try these questions on your own first, then discuss your answers in your breakout room. Nominate someone from your group to feed back on the Padlet.
+>
+> 1. How many sequences are there in `SRR098026.fastq`? Remember that every sequence is formed by four lines.
+> 2. How many sequences in `SRR098026.fastq` contain at least 3 consecutive Ns?
 >
 >> ## Solution
 >>
->>
+>>1.
 >> ~~~
 >> $ wc -l SRR098026.fastq
 >> ~~~
@@ -232,17 +235,7 @@ $ wc -l bad_reads.txt
 >> Now you can divide this number by four to get the number of sequences in your fastq file
 >> {: .output}
 >>
-> {: .solution}
-{: .challenge}
-
-
-> ## Exercise
->
-> How many sequences in `SRR098026.fastq` contain at least 3 consecutive Ns?
->
->> ## Solution
->>  
->>
+>> 2.
 >> ~~~
 >> $ grep NNN SRR098026.fastq > bad_reads.txt
 >> $ wc -l bad_reads.txt
@@ -253,7 +246,6 @@ $ wc -l bad_reads.txt
 >> 249
 >> ~~~
 >> {: .output}
->>
 > {: .solution}
 {: .challenge}
 

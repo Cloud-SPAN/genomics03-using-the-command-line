@@ -95,9 +95,11 @@ prints the contents of `/home`.
 
 > ## Finding hidden directories
 >
-> First navigate to the `shell_data` directory. There is a hidden directory within this directory. Explore the options for `ls` to
-> find out how to see hidden directories. List the contents of the directory and
-> identify the name of the text file in that directory.
+> First navigate to the `shell_data` directory. There is a hidden directory within this directory.
+> Explore the options for `ls` to find out how to see hidden directories. 
+> List the contents of the directory and identify the name of the text file in that directory.
+>
+> Share your answer on the Padlet!
 >
 > Hint: hidden files and folders in Unix start with `.`, for example `.my_hidden_directory`
 >
