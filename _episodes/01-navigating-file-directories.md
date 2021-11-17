@@ -118,12 +118,12 @@ $ ls ../../
 ~~~
 {: .bash}
 
-prints the contents of `/home`.
+prints the contents of the folder called `home`
 
 > ## Finding hidden directories
 >
 > First navigate to the `shell_data` directory. There is a hidden directory within this directory.
-> Explore the options for `ls` to find out how to see hidden directories. 
+> Explore the options for `ls` in the man page to find out how to see hidden directories. 
 > List the contents of the directory and identify the name of the text file in that directory.
 >
 > Share your answer on the Padlet!
@@ -349,7 +349,7 @@ your commands can permanently alter files that the operating
 system needs to function. In many cases, trying to run commands
 in `root` directories will require special permissions which are
 not discussed here, so it’s best to avoid them and work within your
-home directory. Dealing with the `home` directory is very common.
+home directory. Dealing with your home directory is very common.
 The tilde character, `~`, is a shortcut for your home directory.
 In our case, the `root` directory is __two__ levels above our
 `home` directory, so `cd` or `cd ~` will take you to
