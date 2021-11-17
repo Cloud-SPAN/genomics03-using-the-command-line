@@ -23,31 +23,19 @@ If you logged out of your AWS instance at the end of session 1, "Project managem
 
 1. **Open terminal** (or Git Bash terminal if you are a Windows user). 
 
-    Search for 'Terminal' or look for the terminal icon and click (or double click) on it:
+    Search for 'Terminal' or 'Git Bash' or look for the terminal icon and click (or double click) on it. When the shell opens you will be in your home directory.
 
-    This is the Git Bash terminal icon (Windows users):   
 
-    <img src="../fig/gitbash-launch-icon.png" alt="GIT BASH terminal" width="50"/> 
+2. **Move to the `cloudspan` folder**
 
-    The terminal icon in Mac and Linux looks like the following:
-    
-    <img src="../fig/icon-mac-terminal.png" alt="Mac terminal" width="50"/>
-    <img src="../fig/icon-linux-terminal.png" alt="Linux terminal" width="50"/> 
-
-2. **Move to the folder you created for the course**
-
-   Once the terminal opens, **you will be** in your **home** folder (directory). 
-   
-   Your home folder holds all your files and other folders such as the Desktop, Downloads, Documents, etc.
-
-   Move to the folder you created by typing the following and then pressing <kbd>Enter</kbd> at the command prompt:
+    Move to the folder you created by typing the following and then pressing <kbd>Enter</kbd> at the command prompt:
 
     ~~~
     $ cd Desktop/cloudspan	
     ~~~
     {: .bash}
     
-3. Login into your instance with:
+3. **Login into your instance**
 
     ~~~
     $ ssh -i login-key-instanceNN.pem  csuser@instanceNN-gc.cloud-span.aws.york.ac.uk
@@ -64,8 +52,7 @@ We've also learned how to use `cd` to change locations and `ls` to list the cont
 of a directory. Now we're going to learn some additional commands for moving around
 within our file system.
 
-Use the commands we've learned so far to navigate to the `shell_data/untrimmed_fastq` directory, if
-you're not already there.
+Use the commands we've learned so far to navigate to the `shell_data/untrimmed_fastq` directory:
 
 ~~~
 $ cd
