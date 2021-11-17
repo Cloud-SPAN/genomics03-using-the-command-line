@@ -17,6 +17,46 @@ keypoints:
 - "Relative paths specify a location starting from the current location, while absolute paths specify a location from the root of the file system."
 ---
 
+## Getting started
+
+If you logged out of your AWS instance at the end of session 1, "Project management for cloud genomics", the first thing you need to do is log in.
+
+1. **Open terminal** (or Git Bash terminal if you are a Windows user). 
+
+    Search for 'Terminal' or look for the terminal icon and click (or double click) on it:
+
+    This is the Git Bash terminal icon (Windows users):   
+
+    <img src="../fig/gitbash-launch-icon.png" alt="GIT BASH terminal" width="50"/> 
+
+    The terminal icon in Mac and Linux looks like the following:
+    
+    <img src="../fig/icon-mac-terminal.png" alt="Mac terminal" width="50"/>
+    <img src="../fig/icon-linux-terminal.png" alt="Linux terminal" width="50"/> 
+
+2. **Move to the folder you created for the course**
+
+   Once the terminal opens, **you will be** in your **home** folder (directory). 
+   
+   Your home folder holds all your files and other folders such as the Desktop, Downloads, Documents, etc.
+
+   Move to the folder you created by typing the following and then pressing <kbd>Enter</kbd> at the command prompt:
+
+    ~~~
+    $ cd Desktop/cloudspan	
+    ~~~
+    {: .bash}
+    
+3. Login into your instance with:
+
+    ~~~
+    $ ssh -i login-key-instanceNN.pem  csuser@instanceNN-gc.cloud-span.aws.york.ac.uk
+    ~~~
+    {: .bash}
+
+  *Be sure to replace NN with your own number, twice.*
+
+
 ## Moving around the file system
 
 We've learned how to use `pwd` to find our current location within our file system.
